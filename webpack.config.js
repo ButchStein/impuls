@@ -48,7 +48,7 @@ const cssLoaders = extra => {
   return loaders
 }
 
-const babelOptions = preset => {
+/*const babelOptions = preset => {
   const opts = {
     presets: [
       '@babel/preset-env'
@@ -63,10 +63,10 @@ const babelOptions = preset => {
   }
 
   return opts
-}
+}*/
 
 
-const jsLoaders = () => {
+/*const jsLoaders = () => {
   const loaders = [{
     loader: 'babel-loader',
     options: babelOptions()
@@ -77,7 +77,7 @@ const jsLoaders = () => {
   }
 
   return loaders
-}
+}*/
 
 const plugins = () => {
   const base = [
@@ -91,6 +91,10 @@ const plugins = () => {
     new CopyWebpackPlugin([
       {
         from: path.resolve(__dirname, 'src/favicon.ico'),
+        to: path.resolve(__dirname, 'dist')
+      },
+      {
+        from: path.resolve(__dirname, 'src/assets/upload/*'),
         to: path.resolve(__dirname, 'dist')
       }
     ]),
@@ -110,7 +114,8 @@ module.exports = {
   context: path.resolve(__dirname, 'src'),
   mode: 'development',
   entry: {
-    main: ['@babel/polyfill', './index.js']
+    main: './index.js',
+    custom: './slider.js'
   },
   output: {
     filename: filename('js'),
@@ -149,11 +154,6 @@ module.exports = {
       {
         test: /\.csv$/,
         use: ['csv-loader']
-      },
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        use: jsLoaders()
       }
     ]
   }

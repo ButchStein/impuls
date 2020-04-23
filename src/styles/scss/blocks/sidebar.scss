@@ -10,12 +10,34 @@
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  position: relative;
 }
 .navbar__list-item {
   width: 100%;
   height: calc(100% / 6);
   display: flex;
   align-items: center;
+  position: relative;
+}
+.navbar__list-level {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: -90%;
+  background-color: #ecebde;
+  z-index: 5;
+}
+.navbar__list-level_last {
+  display: none;
+  position: absolute;
+  bottom: 0;
+  right: -90%;
+  background-color: #ecebde;
+  z-index: 5;
+}
+.navbar__list-item:hover .navbar__list-level,
+.navbar__list-item:hover .navbar__list-level_last {
+  display: block;
 }
 .navbar__list-link {
   box-sizing: border-box;

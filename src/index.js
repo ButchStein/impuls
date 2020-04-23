@@ -1,4 +1,3 @@
-import "./styles/styles.css";
-import "./styles/slick.css";
-import './js/slick/slick';
-import "./slider";
+import "./styles/styles.css"
+import "./styles/slick.css"
+import "./styles/slick-theme.css"
