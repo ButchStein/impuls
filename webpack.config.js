@@ -87,6 +87,13 @@ const plugins = () => {
         collapseWhitespace: isProd
       }
     }),
+    new HTMLWebpackPlugin({
+      filename: 'contacts.html',
+      template: './contacts.html',
+      minify: {
+        collapseWhitespace: isProd
+      }
+    }),
     new CleanWebpackPlugin(),
     new CopyWebpackPlugin([
       {
@@ -125,7 +132,8 @@ module.exports = {
   optimization: optimization(),
   devServer: {
     port: 4200,
-    hot: isDev
+    hot: isDev,
+    contentBase: "./src",
   },
   devtool: isDev ? 'source-map' : '',
   plugins: plugins(),
